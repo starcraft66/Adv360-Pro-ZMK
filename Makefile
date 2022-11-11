@@ -1,5 +1,5 @@
 TIMESTAMP := $(shell date -u +"%Y%m%d%H%M%S")
-DOCKER := $(shell { command -v podman || command -v docker; })
+DOCKER := $(shell { command -v nerdctl || command -v podman || command -v docker; })
 
 .PHONY: clean setup
 
