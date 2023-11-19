@@ -61,11 +61,11 @@
 
         default_layer {
             bindings = <
-&kp EQUAL         &kp N1  &kp N2     &kp N3        &kp N4  &kp N5  &kp LEFT_ARROW                                                              &kp RIGHT_ARROW    &kp N6  &kp N7  &kp N8     &kp N9            &kp N0             &kp MINUS
-&kp TAB           &kp Q   &kp W      &kp E         &kp R   &kp T   &kp DEL                                                                     &kp LEFT_BRACKET   &kp Y   &kp U   &kp I      &kp O             &kp P              &kp BSLH
-&kp LEFT_CONTROL  &kp A   &kp S      &kp D         &kp F   &kp G   &kp GRAVE       &kp LEFT_ALT   &kp K_MENU      &tog 4         &kp ESC       &kp RIGHT_BRACKET  &kp H   &kp J   &kp K      &kp L             &kp SEMI           &gqt LEFT_WIN APOSTROPHE
-&kp LSHFT         &kp Z   &kp X      &kp C         &kp V   &kp B                                  &kp HOME        &kp PAGE_UP                                     &kp M   &kp N   &kp COMMA  &kp PERIOD        &kp SLASH          &kp RIGHT_SHIFT
-&mo 2             &mo 1   &kp COMMA  &kp LEFT_ALT  &mo 2           &kp SPACE       &kp BACKSPACE  &kp END         &kp PAGE_DOWN  &kp LEFT_ALT  &kp ENTER                  &mo 3   &mo 1      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &mo 2
+&kp EQUAL         &kp N1  &kp N2                 &kp N3        &kp N4  &kp N5  &kp LEFT_ARROW                                                              &kp RIGHT_ARROW    &kp N6  &kp N7  &kp N8     &kp N9            &kp N0             &kp MINUS
+&kp TAB           &kp Q   &kp W                  &kp E         &kp R   &kp T   &kp DEL                                                                     &kp LEFT_BRACKET   &kp Y   &kp U   &kp I      &kp O             &kp P              &kp BSLH
+&kp LEFT_CONTROL  &kp A   &kp S                  &kp D         &kp F   &kp G   &kp GRAVE       &kp LEFT_ALT   &kp K_MENU      &tog 4         &kp ESC       &kp RIGHT_BRACKET  &kp H   &kp J   &kp K      &kp L             &kp SEMI           &gqt LEFT_WIN APOSTROPHE
+&kp LSHFT         &kp Z   &kp X                  &kp C         &kp V   &kp B                                  &kp HOME        &kp PAGE_UP                                     &kp M   &kp N   &kp COMMA  &kp PERIOD        &kp SLASH          &kp RIGHT_SHIFT
+&mo 2             &mo 1   &macro_macro_altshift  &kp LEFT_ALT  &mo 2           &kp SPACE       &kp BACKSPACE  &kp END         &kp PAGE_DOWN  &kp LEFT_ALT  &kp ENTER                  &mo 3   &mo 1      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &mo 2
             >;
         };
 
