@@ -1,21 +1,28 @@
 TIMESTAMP := $(shell date -u +"%Y%m%d%H%M%S")
 DOCKER := $(shell { command -v nerdctl || command -v podman || command -v docker; })
+TIMESTAMP := $(shell date -u +"%Y%m%d%H%M")
+COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null)
+detected_OS := $(shell uname)  # Classify UNIX OS
+ifeq ($(strip $(detected_OS)),Darwin) #We only care if it's OS X
+SELINUX1 :=
+SELINUX2 :=
+else
+SELINUX1 := :z
+SELINUX2 := ,z
+endif
 
-.PHONY: clean setup
+.PHONY: all clean
 
-all: setup build
-
-build: firmware/$$(TIMESTAMP)-left.uf2 firmware/$$(TIMESTAMP)-right.uf2
+all:
+	$(shell bin/get_version.sh >> /dev/null)
+	$(DOCKER) build --tag zmk --file Dockerfile .
+	$(DOCKER) run --rm -it --name zmk \
+		-v $(PWD)/firmware:/app/firmware$(SELINUX1) \
+		-v $(PWD)/config:/app/config:ro$(SELINUX2) \
+		-e TIMESTAMP=$(TIMESTAMP) \
+		-e COMMIT=$(COMMIT) \
+		zmk
 
 clean:
 	rm -f firmware/*.uf2
-
-firmware/%-left.uf2 firmware/%-right.uf2: config/adv360.keymap
-	$(DOCKER) run --rm -it --name zmk \
-		-v $(PWD)/firmware:/app/firmware \
-		-v $(PWD)/config:/app/config:ro \
-		-e TIMESTAMP=$(TIMESTAMP) \
-		zmk
-
-setup: Dockerfile bin/build.sh config/west.yml
-	$(DOCKER) build --tag zmk --file Dockerfile .
+	$(DOCKER) image rm zmk docker.io/zmkfirmware/zmk-build-arm:stable
