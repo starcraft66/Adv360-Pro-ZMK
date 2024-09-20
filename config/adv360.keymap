@@ -15,8 +15,8 @@
 / {
     behaviors {
         #include "macros.dtsi"
-      #include "version.dtsi"
-      #ifndef VERSION_MACRO
+        #include "version.dtsi"
+        #ifndef VERSION_MACRO
 
         macro_ver: macro_ver {
             compatible = "zmk,behavior-macro";
@@ -25,6 +25,8 @@
             bindings = <&kp RET>;
         };
 
+        #endif
+
         language_change_windows: language_change_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -32,7 +34,6 @@
             label = "LANGUAGE_CHANGE_WINDOWS";
         };
 
-        #endif
 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
